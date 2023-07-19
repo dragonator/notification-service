@@ -11,7 +11,7 @@ type NotificationHandler interface {
 	Notify(method, path string) func(w http.ResponseWriter, r *http.Request)
 }
 
-// NewRouter is a construction function for router that handles operations for rentals.
+// NewRouter is a construction function for router that handles operations for notifications.
 func NewRouter(nh NotificationHandler) http.Handler {
 	router := chi.NewRouter()
 
