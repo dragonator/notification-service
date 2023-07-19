@@ -4,7 +4,7 @@ import (
 	"context"
 )
 
-// Publisher is a contract to a message publisher.
-type Publisher interface {
-	Publish(ctx context.Context, channel string, message any) error
+// Producer is a contract to a message producer.
+type Producer interface {
+	Produce(ctx context.Context, channel string, message any) error
 }

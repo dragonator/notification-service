@@ -3,10 +3,13 @@ package notification
 import (
 	"fmt"
 
+	"github.com/segmentio/kafka-go"
+
 	"github.com/dragonator/notification-service/module/notification/internal/http/handler"
 	"github.com/dragonator/notification-service/module/notification/internal/http/service"
 	"github.com/dragonator/notification-service/module/notification/internal/operation/notificationsending"
 	"github.com/dragonator/notification-service/pkg/config"
+	kafkaPKG "github.com/dragonator/notification-service/pkg/kafka"
 	"github.com/dragonator/notification-service/pkg/logger"
 )
 
@@ -23,7 +26,12 @@ type NotificationModule struct {
 
 // NewNotificationModule is a construction function for NotificationModule.
 func NewNotificationModule(config *config.Config, logger *logger.Logger) (*NotificationModule, error) {
-	notificationSendingOp := notificationsending.NewOperation(nil) // FIXME: Provide publisher
+	w := kafka.NewWriter(kafka.WriterConfig{
+		Brokers: []string{config.KafkaBrokerURL},
+	})
+
+	producer := kafkaPKG.NewProducer(w)
+	notificationSendingOp := notificationsending.NewOperation(producer)
 	notificationHandler := handler.NewNotificationHandler(notificationSendingOp)
 	router := service.NewRouter(notificationHandler)
 
