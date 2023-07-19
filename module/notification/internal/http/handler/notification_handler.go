@@ -37,7 +37,7 @@ func (rh *NotificationHandler) Notify(method, path string) func(w http.ResponseW
 			return
 		}
 
-		err := rh.notificationSendingOp.SendNotificationMessage(r.Context(), "")
+		err := rh.notificationSendingOp.SendNotificationMessage(r.Context(), req.Message)
 		if err != nil {
 			errorResponse(w, err)
 			return
