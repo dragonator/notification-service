@@ -19,7 +19,7 @@ func main() {
 
 	logger := logger.NewLogger(cfg.LoggerLevel)
 
-	rentalModule, err := notification.NewNotificationModule(cfg, logger)
+	rentalModule, err := notification.NewServerModule(cfg, logger)
 	if err != nil {
 		panic(err)
 	}
