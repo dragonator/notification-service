@@ -18,3 +18,8 @@ init:
 .PHONY: server-start
 server-start:
 	@go run cmd/server/main.go
+
+
+.PHONY: notification-consumer-start
+notification-consumer-start:
+	@go run cmd/notification-consumer/main.go
