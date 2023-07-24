@@ -19,18 +19,18 @@ func main() {
 
 	logger := logger.NewLogger(cfg.LoggerLevel)
 
-	rentalModule, err := notification.NewServerModule(cfg, logger)
+	serverModule, err := notification.NewServerModule(cfg, logger)
 	if err != nil {
 		panic(err)
 	}
 
-	rentalModule.NotificationService.Start()
+	serverModule.NotificationService.Start()
 
 	stop := make(chan os.Signal, 1)
 	signal.Notify(stop, syscall.SIGTERM, syscall.SIGINT)
 	sig := <-stop
 
 	log.Printf("Signal caught (%s), stopping...", sig.String())
-	rentalModule.NotificationService.Stop()
+	serverModule.NotificationService.Stop()
 	log.Print("Service stopped.")
 }

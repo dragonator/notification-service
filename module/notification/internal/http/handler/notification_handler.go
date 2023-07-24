@@ -14,7 +14,7 @@ type NotificationSendingOp interface {
 	SendNotificationMessage(ctx context.Context, message string) error
 }
 
-// NotificationHandler holds implementation of handlers for rentals.
+// NotificationHandler holds implementation of handlers for notifications.
 type NotificationHandler struct {
 	notificationSendingOp NotificationSendingOp
 }

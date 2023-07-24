@@ -8,7 +8,7 @@ import (
 
 const _notificationChannel = "notification_service_notifications"
 
-// Operation provides an API for fetching single or multiple rentals.
+// Operation provides an API for fetching single or multiple notifications.
 type Operation struct {
 	producer Producer
 }

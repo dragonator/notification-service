@@ -20,10 +20,10 @@ func main() {
 
 	logger := logger.NewLogger(cfg.LoggerLevel)
 
-	rentalModule := notification.NewConsumerModule(cfg, logger)
+	consumerModule := notification.NewConsumerModule(cfg, logger)
 
 	errs := make(chan error)
-	rentalModule.NotificationConsumer.ConsumeMessages(context.Background(), errs)
+	consumerModule.NotificationConsumer.ConsumeMessages(context.Background(), errs)
 
 	go func() {
 		for err := range errs {
@@ -36,6 +36,6 @@ func main() {
 	sig := <-stop
 
 	log.Printf("Signal caught (%s), stopping...", sig.String())
-	rentalModule.NotificationConsumer.Stop()
+	consumerModule.NotificationConsumer.Stop()
 	log.Print("Notification consumer stopped.")
 }
