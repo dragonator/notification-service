@@ -1,15 +1,8 @@
-# rental-service
+# notification-service
 
 [![Go Build](https://github.com/dragonator/notification-service/actions/workflows/go.yml/badge.svg)](https://github.com/dragonator/notification-service/actions/workflows/go.yml)
 
-The service exposes a single endpoint for sending a message to multiple channels:
-
-`GET /notify`
-
-    {
-        "message": "<text>"
-    }
-
+This is a interview assignment implementation of a notification system which task is to accept user requests to send notification on multiple channels. To learn more about the system click [here](/docs/ABOUT.md).
 
 ## Run the service
 
@@ -25,6 +18,9 @@ The following services should be started:
 * kafka-ui
 * notification-service-kafka-1
 * notification-service-zookeeper-1
+
+The server is configured to run on port `9090`.
+The command above also starts a `kafka-ui` service that is located on port `8080`.
 
 #### Run the Kafka consumer:
 

@@ -10,8 +10,6 @@ import (
 )
 
 // NotificationSendingOp is a contract to a notification sending operation.
-//
-//go:generate moq -rm -pkg handler_test -out notification_sending_op_mock_test.go . NotificationSendingOp
 type NotificationSendingOp interface {
 	SendNotificationMessage(ctx context.Context, message string) error
 }
