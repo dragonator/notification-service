@@ -2,7 +2,7 @@
 
 [![Go Build](https://github.com/dragonator/notification-service/actions/workflows/go.yml/badge.svg)](https://github.com/dragonator/notification-service/actions/workflows/go.yml)
 
-This is a interview assignment implementation of a notification system which task is to accept user requests to send notification on multiple channels. To learn more about the system click [here](/docs/ABOUT.md).
+This is an interview assignment implementation of a notification system which task is to accept user requests and send notification messages on multiple channels. To learn more about the system click [here](/docs/ABOUT.md).
 
 ## Run the service
 
